@@ -4,15 +4,10 @@
       <strong>StockedShelves</strong>
     </li>
     <% if user_signed_in? %>
-      <li>
-        <%= link_to "Lists", lists_path %>
-      </li>
-      <li>
-        <%= link_to "Colors", colors_path %>
-      </li>
-      <li>
-        <%= current_user.email %>
-      </li>
+      <li><%= link_to "Lists", lists_path %></li>
+      <li><%= link_to "Colors", colors_path %></li>
+      <li><%= link_to "Products", products_path %></li>
+      <li><%= current_user.email %></li>
       <li>
         <%= link_to "Log out", destroy_user_session_path, data: {
           turbo_method: :delete
