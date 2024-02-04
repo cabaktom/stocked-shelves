@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   validates :expiration, allow_blank: true, comparison: { greater_than_or_equal_to: Proc.new { Date.today } }
 
   def expired?
+    return false if expiration.blank?
     expiration < Date.today
   end
 end
