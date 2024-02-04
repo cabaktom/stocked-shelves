@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_04_171020) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_04_172833) do
   create_table "colors", force: :cascade do |t|
     t.string "name"
     t.string "hex_code"
@@ -31,6 +31,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_04_171020) do
     t.index ["list_id"], name: "index_items_on_list_id"
     t.index ["product_id"], name: "index_items_on_product_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "items_notifications", id: false, force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "notification_id", null: false
+    t.index ["item_id"], name: "index_items_notifications_on_item_id"
+    t.index ["notification_id"], name: "index_items_notifications_on_notification_id"
   end
 
   create_table "lists", force: :cascade do |t|

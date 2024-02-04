@@ -22,13 +22,20 @@
   </div>
 
   <div>
+    <%= form.label :notification_ids, style: "display: block" %>
+    <%= form.select :notification_ids, current_user.notifications.map { 
+        |notification| ["#{pluralize(notification.days_before_expiration, "day")} before#{notification.by_email ? " (email)" : ""}", notification.id] 
+      }, { include_hidden: false, multiple: true } %>
+  </div>
+
+  <div>
     <%= form.label :list_id, style: "display: block" %>
-    <%= form.select :list_id, current_user.lists.map { |list| ["#{list.name} (#{list.color&.hex_code})" , list.id] }  %>
+    <%= form.select :list_id, current_user.lists.map { |list| ["#{list.name} (#{list.color&.hex_code})" , list.id] } %>
   </div>
 
   <div>
     <%= form.label :product_id, style: "display: block" %>
-    <%= form.select :product_id, current_user.products.map { |product| ["#{product.name}" , product.id] }  %>
+    <%= form.select :product_id, current_user.products.map { |product| ["#{product.name}" , product.id] } %>
   </div>
 
   <div>
