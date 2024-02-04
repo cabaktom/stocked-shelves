@@ -18,14 +18,14 @@
 
   <div>
     <%= form.label :expiration, style: "display: block" %>
-    <%= form.date_field :expiration, min: Date.today %>
+    <%= form.date_field :expiration, min: Date.today, id: "expiration_date_picker" %>
   </div>
 
   <div>
     <%= form.label :notification_ids, style: "display: block" %>
     <%= form.select :notification_ids, current_user.notifications.map { 
         |notification| ["#{pluralize(notification.days_before_expiration, "day")} before#{notification.by_email ? " (email)" : ""}", notification.id] 
-      }, { include_hidden: false, multiple: true } %>
+      }, { include_hidden: false, multiple: true }, id: "notification_select" %>
   </div>
 
   <div>
@@ -42,3 +42,17 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+    const expirationInput = document.getElementById('expiration_date_picker');
+    const notificationSelect = document.getElementById('notification_select');
+
+    function toggleNotificationSelect() {
+      notificationSelect.disabled = !expirationInput.value;
+    }
+
+    toggleNotificationSelect();
+    expirationInput.addEventListener("change", toggleNotificationSelect);
+  });
+</script>
