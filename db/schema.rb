@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_04_135055) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_04_145144) do
   create_table "colors", force: :cascade do |t|
     t.string "name"
     t.string "hex_code"
@@ -18,6 +18,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_04_135055) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_colors_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer "quantity", default: 1
+    t.datetime "expiration"
+    t.boolean "expired", default: false
+    t.integer "list_id", null: false
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_items_on_list_id"
+    t.index ["product_id"], name: "index_items_on_product_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -52,6 +66,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_04_135055) do
   end
 
   add_foreign_key "colors", "users"
+  add_foreign_key "items", "lists"
+  add_foreign_key "items", "products"
+  add_foreign_key "items", "users"
   add_foreign_key "lists", "colors"
   add_foreign_key "lists", "users"
   add_foreign_key "products", "users"

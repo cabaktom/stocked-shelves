@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :color, style: "display: block" %>
-    <%= form.select :color_id, Color.all.map { |color| ["#{color.name} (#{color.hex_code})", color.id] }, { include_blank: true } %>
+    <%= form.select :color_id, current_user.colors.map { |color| ["#{color.name} (#{color.hex_code})", color.id] }, { include_blank: true } %>
   </div>
 
   <div>

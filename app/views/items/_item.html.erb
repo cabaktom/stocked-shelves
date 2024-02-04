@@ -1,0 +1,26 @@
+<div id="<%= dom_id item %>" style="border: 1px solid black">
+  <p>
+    <strong>Product:</strong>
+    <%= item.product.name %>
+  </p>
+
+  <p>
+    <strong>Quantity:</strong>
+    <%= item.quantity %>
+  </p>
+
+  <p>
+    <strong>Expiration:</strong>
+    <%= item.expiration || "never" %>
+  </p>
+
+  <p>
+    <strong>Expired:</strong>
+    <%= item.expired %>
+  </p>
+
+  <p>
+    <strong>List:</strong>
+    <%= item.list.name %> (<%= item.list.color&.hex_code %>)
+  </p>
+</div>

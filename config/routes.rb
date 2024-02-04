@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :products
+  devise_for :users
+
   resources :lists
   resources :colors
-  devise_for :users
+  resources :products
+  resources :items
 
   # Root route
   root "pages#root", as: :root
