@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, 
+              controllers: { registrations: "users/registrations" },
+              path: '',
+              path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }
 
   resources :lists
   resources :colors
