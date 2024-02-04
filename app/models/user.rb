@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :colors, dependent: :destroy
   has_many :products, dependent: :destroy
   has_many :items, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 end

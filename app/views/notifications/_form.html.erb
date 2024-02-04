@@ -1,0 +1,27 @@
+<%= form_with(model: notification) do |form| %>
+  <% if notification.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(notification.errors.count, "error") %> prohibited this notification from being saved:</h2>
+
+      <ul>
+        <% notification.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :days_before_expiration, style: "display: block" %>
+    <%= form.number_field :days_before_expiration %>
+  </div>
+
+  <div>
+    <%= form.label :by_email, style: "display: block" %>
+    <%= form.check_box :by_email %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

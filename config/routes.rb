@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :colors
   resources :products
   resources :items
+  resources :notifications
 
   # Root route
   root "pages#root", as: :root
