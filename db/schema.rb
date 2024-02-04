@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_04_145144) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_04_154927) do
   create_table "colors", force: :cascade do |t|
     t.string "name"
     t.string "hex_code"
@@ -23,7 +23,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_04_145144) do
   create_table "items", force: :cascade do |t|
     t.integer "quantity", default: 1
     t.datetime "expiration"
-    t.boolean "expired", default: false
     t.integer "list_id", null: false
     t.integer "user_id", null: false
     t.integer "product_id", null: false
