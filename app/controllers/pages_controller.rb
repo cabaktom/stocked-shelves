@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, except: [:root, :home]
+  skip_before_action :authenticate_user!, only: [:root, :home]
 
   def root
     if user_signed_in?
