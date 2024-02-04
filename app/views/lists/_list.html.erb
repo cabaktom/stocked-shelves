@@ -1,0 +1,14 @@
+<div id="<%= dom_id list %>" style="border: 1px solid black">
+  <p>
+    <strong>Name:</strong>
+    <%= list.name %>
+  </p>
+
+  <p>
+    <strong>Color:</strong>
+    <% if list.color %>
+      <%= list.color.name %> (<%= list.color.hex_code %>)
+    <% else %>
+    <% end %>
+  </p>
+</div>

@@ -1,0 +1,36 @@
+<%= form_with(model: color) do |form| %>
+  <% if color.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(color.errors.count, "error") %> prohibited this color from being saved:</h2>
+
+      <ul>
+        <% color.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :hex_code, style: "display: block" %>
+    <%= form.color_field :hex_code, id: "color_picker", oninput: "updateColorHexValue()", value: "#ffffff" %>
+    <span id="hex_value">#ffffff</span>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script>
+  function updateColorHexValue() {
+    var colorPicker = document.getElementById('color_picker');
+    var hexValueDisplay = document.getElementById('hex_value');
+    hexValueDisplay.innerHTML = colorPicker.value;
+  }
+</script>

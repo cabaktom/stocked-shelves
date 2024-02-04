@@ -9,9 +9,11 @@ class PagesController < ApplicationController
     end
   end
 
+  # GET /
   def home
   end
 
+  # GET /dashboard
   def dashboard
   end
 end

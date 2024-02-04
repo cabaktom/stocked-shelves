@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lists
+  resources :colors
   devise_for :users
 
   # Root route
