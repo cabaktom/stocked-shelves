@@ -3,7 +3,7 @@ class ColorsController < ApplicationController
 
   # GET /colors or /colors.json
   def index
-    @colors = Color.all
+    @colors = current_user.colors
   end
 
   # GET /colors/1 or /colors/1.json
@@ -22,6 +22,7 @@ class ColorsController < ApplicationController
   # POST /colors or /colors.json
   def create
     @color = Color.new(color_params)
+    @color.user_id = current_user.id
 
     respond_to do |format|
       if @color.save
@@ -60,7 +61,7 @@ class ColorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_color
-      @color = Color.find(params[:id])
+      @color = current_user.colors.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
