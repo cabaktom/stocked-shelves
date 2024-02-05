@@ -22,3 +22,21 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Ruby version
+
+- built with Ruby 3.2.2 and Rails 7.1.2
+
+## Dependencies
+
+- Redis 6.2+ (for Sidekiq), [installation guide](https://redis.io/docs/install/install-redis/)
+
+## Configuration
+
+For local development set up the environment variables based on the `.env.template` file.
+
+```sh
+cp .env.template .env
+```
+
+Production environment variables should be set in the hosting environment.
