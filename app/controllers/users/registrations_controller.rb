@@ -9,4 +9,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       UserMailer.welcome_email(@user).deliver_later
     end
   end
+
+  protected
+
+  def after_update_path_for(resource)
+    edit_user_registration_path
+  end
 end

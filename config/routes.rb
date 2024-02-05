@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, 
               controllers: { registrations: "users/registrations" },
               path: '',
-              path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }
+              path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'profile' }
 
   resources :lists
   resources :colors
