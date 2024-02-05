@@ -2,10 +2,8 @@
 
 one:
   days_before_expiration: 2024-02-04 18:10:20
-  by_email: false
   user: one
 
 two:
   days_before_expiration: 2024-02-04 18:10:20
-  by_email: false
   user: two

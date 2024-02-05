@@ -66,6 +66,6 @@ class NotificationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def notification_params
-      params.require(:notification).permit(:days_before_expiration, :by_email)
+      params.require(:notification).permit(:days_before_expiration)
     end
 end

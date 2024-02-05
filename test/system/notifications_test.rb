@@ -14,7 +14,6 @@ class NotificationsTest < ApplicationSystemTestCase
     visit notifications_url
     click_on "New notification"
 
-    check "By email" if @notification.by_email
     fill_in "Days before expiration", with: @notification.days_before_expiration
     fill_in "User", with: @notification.user_id
     click_on "Create Notification"
@@ -27,7 +26,6 @@ class NotificationsTest < ApplicationSystemTestCase
     visit notification_url(@notification)
     click_on "Edit this notification", match: :first
 
-    check "By email" if @notification.by_email
     fill_in "Days before expiration", with: @notification.days_before_expiration
     fill_in "User", with: @notification.user_id
     click_on "Update Notification"

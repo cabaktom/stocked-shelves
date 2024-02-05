@@ -26,6 +26,8 @@
 
   <p>
     <strong>Notifications:</strong>
-    <%= item.notification&.map { |notification| "#{pluralize(notification.days_before_expiration, "day")} before#{notification.by_email ? " (email)" : ""}" }.join(", ") %>
+    <%= item.notification&.map { 
+      |notification| "#{pluralize(notification.days_before_expiration, "day")} before" }.join(", ") 
+    %>
   </p>
 </div>
