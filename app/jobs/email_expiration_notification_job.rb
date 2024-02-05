@@ -1,16 +1,18 @@
 class EmailExpirationNotificationJob < ApplicationJob
   queue_as :mailers
 
-  def perform(user_id, item_id, item_expiration, notification_id)
-    # Non-existent items and notifications throw DeserializationError that is caught and discarded by ApplicationJob
-    user = User.find_by(id: user_id)
-    item = Item.find_by(id: item_id)
-    notification = Notification.find_by(id: notification_id)
+  discard_on ActiveJob::DeserializationError do |job, error|
+    logger.info "Discarding job #{job.class.name} with ID #{job.job_id} because of #{error.message} (possibly due to a deleted record)"
+  end
 
+  # Rails global ID feature allows us to pass ActiveRecord objects as arguments to ActiveJob,
+  # non-existent objects throw DeserializationError that is caught and discarded
+  # https://github.com/sidekiq/sidekiq/wiki/Active-Job#using-global-id
+  def perform(user, item, original_expiration, notification)
     return unless user.notify_through_email # User has opted out of email notifications after scheduling this job
-    return unless item.expiration == item_expiration
+    return unless item.expiration == original_expiration
     return unless item.notification.include?(notification)
 
-    UserMailer.expiration_email(item.user, item, notification).deliver_now
+    UserMailer.expiration_email(user, item, notification).deliver_now
   end
 end
