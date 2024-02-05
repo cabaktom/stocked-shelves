@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+</head>
+<body>
+  <h1>Reminder: Your item expires soon!</h1>
+  <p>
+    Hello <%= @user.username %>,
+  </p>
+  <p>
+    your item "<%= @item.product.name %>" (x<%= @item.quantity %>) will expire in <%= pluralize(@notification.days_before_expiration, 'day') %>.
+  </p>
+  <p>
+    To view the item, just follow <a href="<%= @url %>" title="StockedShelves item detail">this link</a>.
+  </p>
+</body>
+</html>

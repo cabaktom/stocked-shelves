@@ -1,0 +1,7 @@
+Reminder: Your item expires soon!
+==================================
+
+Hello <%= @user.username %>,
+your item "<%= @item.product.name %>" (<%= @item.quantity %>x) will expire in <%= pluralize(@notification.days_before_expiration, 'day') %>.
+
+To view the item, just follow this link: <%= @url %>.

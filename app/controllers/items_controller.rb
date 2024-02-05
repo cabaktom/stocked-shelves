@@ -75,10 +75,12 @@ class ItemsController < ApplicationController
     end
 
     def schedule_expiration_notification
+      return unless current_user.notify_through_email
       return unless @item.expiration
 
       @item.notification.each do |notification|
-        EmailExpirationNotificationJob.set(wait_until: @item.expiration - notification.days_before_expiration.days).perform_later(@item.id, notification.id)
+        EmailExpirationNotificationJob.set(wait_until: @item.expiration - notification.days_before_expiration.days)
+          .perform_later(current_user.id, @item.id, @item.expiration, notification.id)
       end
     end
 end
