@@ -1,0 +1,5 @@
+# https://github.com/sidekiq/sidekiq/wiki/Advanced-Options
+---
+:queues:
+  - default
+  - mailers

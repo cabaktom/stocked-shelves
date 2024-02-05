@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
+  after_action :schedule_expiration_notification, only: %i[ create update ]
 
   # GET /items or /items.json
   def index
@@ -71,5 +72,13 @@ class ItemsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def item_params
       params.require(:item).permit(:quantity, :expiration, :expired, :list_id, :product_id, notification_ids: [])
+    end
+
+    def schedule_expiration_notification
+      return unless @item.expiration
+
+      @item.notification.each do |notification|
+        EmailExpirationNotificationJob.set(wait_until: @item.expiration - notification.days_before_expiration.days).perform_later(@item.id, notification.id)
+      end
     end
 end
