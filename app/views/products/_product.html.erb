@@ -8,4 +8,16 @@
     <strong>Barcode:</strong>
     <%= product.barcode %>
   </p>
+
+  <p>
+    <strong>Image:</strong>
+    <% if product.image.attached? %>
+      <%= product.image.filename %>
+      <%= link_to rails_blob_path(product.image, disposition: "inline"), target: "_blank" do %>
+        <%= image_tag product.image.representation(resize_to_fill: [400, 400]) %>
+      <% end %>
+    <% else %>
+      No image
+    <% end %>
+  </p>
 </div>

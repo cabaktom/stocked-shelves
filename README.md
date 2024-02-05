@@ -29,7 +29,8 @@ Things you may want to cover:
 
 ## Dependencies
 
-- Redis 6.2+ (for Sidekiq), [installation guide](https://redis.io/docs/install/install-redis/)
+- [Redis](https://redis.io/) 6.2+ (for Sidekiq)
+- [libvips](https://www.libvips.org/) (for image processing)
 
 ## Configuration
 

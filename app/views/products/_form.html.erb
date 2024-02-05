@@ -22,6 +22,22 @@
   </div>
 
   <div>
+    <%= form.label :image, style: "display: block" %>
+    <% if product.image.attached? %>
+      <%= image_tag product.image.representation(resize_to_fill: [50, 50]) %>
+      <%= product.image.filename %>
+      <p>
+        Uploading a new image will replace the existing one.
+      </p>
+    <% else %>
+      <p>
+        No image
+      </p>
+    <% end %>
+    <%= form.file_field :image, accept: "image/png,image/jpg,image/jpeg" %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
