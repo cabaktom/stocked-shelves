@@ -1,4 +1,6 @@
 class Color < ApplicationRecord
+  include Hashid::Rails
+  
   has_many :list
   belongs_to :user
 

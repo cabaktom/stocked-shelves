@@ -61,7 +61,7 @@ class NotificationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_notification
-      @notification = current_user.notifications.find(params[:id])
+      @notification = current_user.notifications.find_by_hashid(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
