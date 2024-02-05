@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ show edit update destroy delete_image_attachment ]
 
   # GET /products or /products.json
   def index
@@ -54,6 +54,16 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
+  def delete_image_attachment
+    @image = ActiveStorage::Blob.find_signed(params[:signed_id])
+    @image.attachments.first.purge
+
+    respond_to do |format|
+      format.html { redirect_to product_url(@product), notice: "Image from the product was successfully removed." }
       format.json { head :no_content }
     end
   end

@@ -26,6 +26,11 @@
     <% if product.image.attached? %>
       <%= image_tag product.image.representation(resize_to_fill: [50, 50]) %>
       <%= product.image.filename %>
+
+      <%= link_to 'Remove image', delete_image_attachment_product_url(signed_id: product.image.signed_id), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?" } %>
+
       <p>
         Uploading a new image will replace the existing one.
       </p>

@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   resources :lists
   resources :colors
-  resources :products
+  resources :products do
+    delete :delete_image_attachment, on: :member
+  end
   resources :items
   resources :notifications
 
