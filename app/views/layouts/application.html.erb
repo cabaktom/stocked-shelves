@@ -16,12 +16,10 @@
       <%= render "layouts/navbar" %>
     </header>
   
-    <!-- TODO: Implement using toasts -->
-    <!--
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    -->
-  
-    <%= yield %>
+    <%= render "layouts/flash" %>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
