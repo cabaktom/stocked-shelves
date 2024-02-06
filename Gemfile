@@ -76,3 +76,5 @@ gem "sidekiq", "~> 7.2"
 gem "hashid-rails", "~> 1.4"
 
 gem "active_storage_validations", "~> 1.1"
+
+gem "tailwindcss-rails", "~> 2.3"
