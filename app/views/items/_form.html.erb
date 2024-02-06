@@ -30,7 +30,7 @@
 
   <div>
     <%= form.label :list_id, style: "display: block" %>
-    <%= form.select :list_id, current_user.lists.map { |list| ["#{list.name} (#{list.color&.hex_code})" , list.id] } %>
+    <%= form.select :list_id, current_user.lists.map { |list| ["#{list.name}#{list.color.present? ? " (#{list.color&.hex_code})": ""}" , list.id] } %>
   </div>
 
   <div>
@@ -38,8 +38,8 @@
     <%= form.select :product_id, current_user.products.map { |product| ["#{product.name}" , product.id] } %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="controls mt-2">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
 

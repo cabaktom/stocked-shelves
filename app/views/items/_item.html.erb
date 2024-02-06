@@ -1,33 +1,39 @@
-<div id="<%= dom_id item %>" style="border: 1px solid black">
+<div id="<%= dom_id item %>">
   <p>
-    <strong>Product:</strong>
+    <span class="font-semibold">Product:</span>
     <%= item.product.name %>
   </p>
 
   <p>
-    <strong>Quantity:</strong>
+    <span class="font-semibold">Quantity:</span>
     <%= item.quantity %>
   </p>
 
   <p>
-    <strong>Expiration:</strong>
-    <%= item.expiration || "never" %>
+    <span class="font-semibold">Expiration:</span>
+    <%= item.expiration&.to_date || "never" %>
   </p>
 
   <p>
-    <strong>Expired:</strong>
+    <span class="font-semibold">Expired:</span>
     <%= item.expired? %>
   </p>
 
   <p>
-    <strong>List:</strong>
-    <%= item.list.name %> (<%= item.list.color&.hex_code %>)
+    <span class="font-semibold">List:</span>
+    <%= item.list.name %><% if item.list.color.present? %> (<span style="background-color: <%= item.list.color.hex_code %>; color: <%= contrast_color(item.list.color.hex_code) %>;"><%= item.list.color.hex_code %></span>)<% end %>
   </p>
 
   <p>
-    <strong>Notifications:</strong>
-    <%= item.notification&.map { 
-      |notification| "#{pluralize(notification.days_before_expiration, "day")} before" }.join(", ") 
-    %>
+    <span class="font-semibold">Notifications:</span>
+    <% if item.notification.empty? %>
+      none
+    <% else %>
+      <% item.notification&.sort_by(&:days_before_expiration).each do |notification| %>
+        <li>
+          <%= notification.days_before_expiration %> days before (<%= item.expiration&.to_date - notification.days_before_expiration.days %>)
+        </li>
+      <% end %>
+    <% end %>
   </p>
 </div>

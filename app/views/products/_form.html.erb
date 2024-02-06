@@ -24,14 +24,21 @@
   <div>
     <%= form.label :image, style: "display: block" %>
     <% if product.image.attached? %>
-      <%= image_tag product.image.representation(resize_to_fill: [50, 50]) %>
+      <div class="flex flex-row gap-2 items-center">
+        <%= image_tag product.image.representation(resize_to_fill: [50, 50]) %>
+        <%= link_to delete_image_attachment_product_url(signed_id: product.image.signed_id), class: "icon-btn btn-danger",
+          data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?" 
+          } do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 inline-block">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        <% end %>
+      </div>
       <%= product.image.filename %>
 
-      <%= link_to 'Remove image', delete_image_attachment_product_url(signed_id: product.image.signed_id), data: {
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?" } %>
-
-      <p>
+      <p class="text-danger-500 mt-2 mb-1">
         Uploading a new image will replace the existing one.
       </p>
     <% else %>
@@ -42,7 +49,7 @@
     <%= form.file_field :image, accept: "image/png,image/jpg,image/jpeg" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="controls mt-2">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

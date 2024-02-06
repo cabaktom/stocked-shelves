@@ -1,8 +1,9 @@
-<%= render @color %>
+<div class="card">
+  <%= render @color %>
+</div>
 
-<div>
-  <%= link_to "Edit this color", edit_color_path(@color) %> |
-  <%= link_to "Back to colors", colors_path %>
-
-  <%= button_to "Destroy this color", @color, method: :delete %>
+<div class="controls mt-4">
+  <%= link_to "Edit this color", edit_color_path(@color), class: "btn btn-primary" %>
+  <%= link_to "Back to colors", colors_path, class: "btn btn-secondary" %>
+  <%= button_to "Destroy this color", @color, method: :delete, class: "btn btn-danger" %>
 </div>

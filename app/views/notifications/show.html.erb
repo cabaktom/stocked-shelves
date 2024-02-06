@@ -1,8 +1,9 @@
-<%= render @notification %>
+<div class="card">
+  <%= render @notification %>
+</div>
 
-<div>
-  <%= link_to "Edit this notification", edit_notification_path(@notification) %> |
-  <%= link_to "Back to notifications", notifications_path %>
-
-  <%= button_to "Destroy this notification", @notification, method: :delete %>
+<div class="controls mt-4">
+  <%= link_to "Edit this notification", edit_notification_path(@notification), class: "btn btn-primary" %>
+  <%= link_to "Back to notifications", notifications_path, class: "btn btn-secondary" %>
+  <%= button_to "Destroy this notification", @notification, method: :delete, class: "btn btn-danger" %>
 </div>

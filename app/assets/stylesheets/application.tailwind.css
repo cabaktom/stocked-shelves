@@ -11,24 +11,51 @@
     @apply p-4;
   }
   h1, h2, h3 {
-    @apply font-semibold underline decoration-primary-300;
+    @apply font-semibold underline decoration-primary-300 flex justify-center;
   }
   h1 {
-    @apply text-3xl mb-4;
+    @apply text-3xl mb-4 mt-2;
   }
   h2 {
     @apply text-2xl mb-2;
+  }
+  form {
+    @apply flex flex-col gap-2 w-full max-w-md mx-auto p-4 mb-0;
+
+    select,
+    input:not([type="submit"]):not([type="color"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+      @apply p-2 border border-primary-500 rounded w-full;
+    }
+
+    &.button_to {
+      @apply m-0 p-0 w-auto;
+    }
   }
 }
 
 @layer components {
   .btn {
-    @apply py-2 px-4 rounded hover:shadow-sm transition-all;
+    @apply py-2 px-4 rounded hover:shadow-sm transition-all cursor-pointer;
+  }
+  .icon-btn {
+    @apply p-1 rounded hover:shadow-sm transition-all cursor-pointer;
   }
   .btn-primary {
-    @apply bg-primary-500 text-white hover:bg-primary-600;
+    @apply bg-primary-500 text-white stroke-white hover:bg-primary-600;
   }
   .btn-secondary {
-    @apply bg-transparent border border-primary-500 hover:bg-primary-500 hover:text-white;
+    @apply bg-transparent border border-primary-500 stroke-primary-500 hover:bg-primary-600 hover:text-white hover:stroke-white;
+  }
+  .btn-danger {
+    @apply bg-danger-500 text-white stroke-white hover:bg-danger-600;
+  }
+  .record-wrapper {
+    @apply flex items-center justify-between p-2 border-b-2;
+  }
+  .card {
+    @apply p-4 border border-primary-500 rounded shadow-sm max-w-lg mx-auto;
+  }
+  .controls {
+    @apply flex justify-center gap-2;
   }
 }

@@ -1,20 +1,20 @@
-<div id="<%= dom_id product %>" style="border: 1px solid black">
+<div id="<%= dom_id product %>">
   <p>
-    <strong>Name:</strong>
+    <span class="font-semibold">Name:</span>
     <%= product.name %>
   </p>
 
   <p>
-    <strong>Barcode:</strong>
+    <span class="font-semibold">Barcode:</span>
     <%= product.barcode %>
   </p>
 
   <p>
-    <strong>Image:</strong>
+    <span class="font-semibold">Image:</span>
     <% if product.image.attached? %>
       <%= product.image.filename %>
       <%= link_to rails_blob_path(product.image, disposition: "inline"), target: "_blank" do %>
-        <%= image_tag product.image.representation(resize_to_fill: [400, 400]) %>
+        <%= image_tag product.image.representation(resize_to_fill: [300, 300]) %>
       <% end %>
     <% else %>
       No image

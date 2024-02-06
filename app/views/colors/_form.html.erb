@@ -18,12 +18,14 @@
 
   <div>
     <%= form.label :hex_code, style: "display: block" %>
-    <%= form.color_field :hex_code, id: "color_picker", oninput: "updateColorHexValue()", value: "#ffffff" %>
-    <span id="hex_value">#ffffff</span>
+    <div class="flex align-middle gap-2">
+      <%= form.color_field :hex_code, id: "color_picker", oninput: "updateColorHexValue()", value: "#ffffff" %>
+      <span id="hex_value">#ffffff</span>
+    </div>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="controls mt-2">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
 

@@ -2,9 +2,7 @@
 
 <%= render "form", color: @color %>
 
-<br>
-
-<div>
-  <%= link_to "Show this color", @color %> |
-  <%= link_to "Back to colors", colors_path %>
+<div class="controls">
+  <%= link_to "Show this color", @color, class: "btn btn-secondary" %>
+  <%= link_to "Back to colors", colors_path, class: "btn btn-secondary" %>
 </div>

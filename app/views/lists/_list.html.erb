@@ -1,14 +1,17 @@
-<div id="<%= dom_id list %>" style="border: 1px solid black">
+<div id="<%= dom_id list %>">
   <p>
-    <strong>Name:</strong>
+    <span class="font-semibold">Name:</span>
     <%= list.name %>
   </p>
 
   <p>
-    <strong>Color:</strong>
-    <% if list.color %>
-      <%= list.color.name %> (<%= list.color.hex_code %>)
+    <span class="font-semibold">Color:</span>
+    <% if list.color.present? %>
+      <span style="background-color: <%= list.color.hex_code %>; color: <%= contrast_color(list.color.hex_code) %>;">
+        <%= list.color.hex_code %>
+      </span>
     <% else %>
+      none
     <% end %>
   </p>
 </div>
