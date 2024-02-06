@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def welcome_email(user)
     @user = user
-    @url = 'http://stockedshelves.com/login'
+    @url = new_user_session_url
     mail(to: @user.email, subject: 'Welcome to Stocked Shelves')
   end
 
@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @item = item
     @notification = notification
-    @url = "http://stockedshelves.com/items/#{item.id}"
+    @url = item_url(@item)
     mail(to: @user.email, subject: 'Item Expiration Reminder')
   end
 end

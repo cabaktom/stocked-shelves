@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.2.2"
 
 # Environment variables
-gem 'dotenv', groups: [:development, :test]
+gem 'dotenv', groups: [:development, :test], require: 'dotenv/load'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
