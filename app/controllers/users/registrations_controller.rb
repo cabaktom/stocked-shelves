@@ -5,14 +5,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /users
   def create
     super
-    if @user.persisted?
-      UserMailer.welcome_email(@user).deliver_later
-    end
+    return unless @user.persisted?
+
+    UserMailer.welcome_email(@user).deliver_later
   end
 
   protected
 
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     edit_user_registration_path
   end
 end

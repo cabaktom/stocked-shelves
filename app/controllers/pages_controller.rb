@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:root, :home]
+  skip_before_action :authenticate_user!, only: %i[root home]
 
   def root
     if user_signed_in?
@@ -10,8 +12,7 @@ class PagesController < ApplicationController
   end
 
   # GET /
-  def home
-  end
+  def home; end
 
   # GET /dashboard
   def dashboard

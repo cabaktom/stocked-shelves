@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UserMailer < ApplicationMailer
-  default from: "notifications@stockedshelves.com"
+  default from: 'notifications@stockedshelves.com'
 
   def welcome_email(user)
     @user = user

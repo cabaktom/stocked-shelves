@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   html {
     @apply selection:bg-secondary-500 selection:text-white;
@@ -10,7 +9,9 @@
   main {
     @apply p-4;
   }
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     @apply font-semibold underline decoration-primary-300 flex justify-center;
   }
   h1 {
@@ -23,7 +24,9 @@
     @apply flex flex-col gap-2 w-full max-w-md mx-auto p-4 mb-0;
 
     select,
-    input:not([type="submit"]):not([type="color"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+    input:not([type='submit']):not([type='color']):not([type='checkbox']):not(
+        [type='radio']
+      ):not([type='file']) {
       @apply p-2 border border-primary-500 rounded w-full;
     }
 
