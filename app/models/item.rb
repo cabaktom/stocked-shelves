@@ -11,6 +11,8 @@ class Item < ApplicationRecord
 
   def expired?
     return false if expiration.blank?
+    return false if used?
+
     expiration < Date.today
   end
 end

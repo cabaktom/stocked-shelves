@@ -20,6 +20,11 @@
   </p>
 
   <p>
+    <span class="font-semibold">Used:</span>
+    <%= item.used? %>
+  </p>
+
+  <p>
     <span class="font-semibold">List:</span>
     <%= item.list.name %><% if item.list.color.present? %> (<span style="background-color: <%= item.list.color.hex_code %>; color: <%= contrast_color(item.list.color.hex_code) %>;"><%= item.list.color.hex_code %></span>)<% end %>
   </p>

@@ -2,8 +2,22 @@
   <%= render @item %>
 </div>
 
-<div class="controls mt-4">
-  <%= link_to "Edit this item", edit_item_path(@item), class: "btn btn-primary" %>
-  <%= link_to "Back to items", items_path, class: "btn btn-secondary" %>
-  <%= button_to "Destroy this item", @item, method: :delete, class: "btn btn-danger" %>
+<div class="controls mt-4 flex-col items-center">
+  <div class="flex gap-2">
+    <%= link_to "Edit this item", edit_item_path(@item), class: "btn btn-primary" %>
+    <%= button_to "Destroy this item", @item, method: :delete, class: "btn btn-danger" %>
+  </div>
+  <% unless @item.expired? %>
+    <div class="flex gap-2">
+      <% if @item.used? %>
+        <%= link_to "Mark as not used", item_path(@item, item: { used: false }), class: "btn btn-secondary", 
+          data: { turbo_method: :patch } %>
+      <% else %>
+        <%= link_to "Mark as used", item_path(@item, item: { used: true }), class: "btn btn-secondary",
+          data: { turbo_method: :patch } %>
+      <% end %>
+
+      <%= link_to "Back to items", items_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>  
 </div>

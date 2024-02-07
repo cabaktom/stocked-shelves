@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 
   # PATCH/PUT /items/1 or /items/1.json
   def update
-    if item_params[:expiration].blank?
+    if item_params[:expiration].blank? || item_params[:used]
       params[:item][:notification_ids] = []
     end
     
@@ -71,12 +71,13 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:quantity, :expiration, :expired, :list_id, :product_id, notification_ids: [])
+      params.require(:item).permit(:quantity, :expiration, :expired, :list_id, :product_id, :used, notification_ids: [])
     end
 
     def schedule_expiration_notification
       return unless current_user.notify_through_email
       return unless @item.expiration
+      return if @item.expired? || @item.used?
 
       @item.notification.each do |notification|
         EmailExpirationNotificationJob.set(wait_until: @item.expiration - notification.days_before_expiration.days)

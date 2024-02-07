@@ -12,6 +12,7 @@ class EmailExpirationNotificationJob < ApplicationJob
     return unless user.notify_through_email # User has opted out of email notifications after scheduling this job
     return unless item.expiration == original_expiration
     return unless item.notification.include?(notification)
+    return if item.used?
 
     UserMailer.expiration_email(user, item, notification).deliver_now
   end
