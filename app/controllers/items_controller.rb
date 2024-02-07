@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
-  after_action :schedule_expiration_notification, only: %i[ create update ]
+  after_action :schedule_expiration_notification, only: %i[ create ] # update is handled in the respective action
 
   # GET /items or /items.json
   def index
@@ -41,12 +41,20 @@ class ItemsController < ApplicationController
     if item_params[:expiration].blank? || item_params[:used]
       params[:item][:notification_ids] = []
     end
+
+    current_notification_ids = @item.notification_ids
     
-    respond_to do |format|
-      if @item.update(item_params)
+    if @item.update(item_params)
+      if @item.previous_changes.key?("expiration") || (current_notification_ids != @item.notification_ids)
+        schedule_expiration_notification
+      end
+  
+      respond_to do |format|
         format.html { redirect_to item_url(@item), notice: "Item was successfully updated." }
         format.json { render :show, status: :ok, location: @item }
-      else
+      end
+    else
+      respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
