@@ -1,43 +1,36 @@
-# README
+# StockedShelves
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A web application for keeping track of all the food you have.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-## Ruby version
+## Ruby version and dependencies
 
 - built with Ruby 3.2.2 and Rails 7.1.2
-
-## Dependencies
-
 - [Redis](https://redis.io/) 6.2+ (for Sidekiq)
 - [libvips](https://www.libvips.org/) (for image processing)
 
 ## Configuration
 
-For local development set up the environment variables based on the `.env.template` file.
+Set up your environment variables based on the `.env.template` file.
 
 ```sh
 cp .env.template .env
 ```
 
 Production environment variables should be set in the hosting environment.
+
+## Development startup
+
+Rails server and Sidekiq worker (Redis has to be running) can be started with the following commands. 
+
+There is a demo user with the following credentials: `email: demo@example.com`, `password: password`.
+
+```sh
+bundle install
+rails db:create db:migrate
+rails db:seed
+rails s
+```
+
+```sh
+bundle exec sidekiq
+```
