@@ -15,5 +15,6 @@ class PagesController < ApplicationController
 
   # GET /dashboard
   def dashboard
+    @items = current_user.items
   end
 end

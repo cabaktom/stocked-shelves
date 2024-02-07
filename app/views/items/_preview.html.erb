@@ -1,0 +1,16 @@
+<div id="<%= dom_id item %>">
+  <p>
+    <span class="font-semibold">Product:</span>
+    <%= item.product.name %>
+  </p>
+
+  <p>
+    <span class="font-semibold">Quantity:</span>
+    <%= item.quantity %>
+  </p>
+
+  <p>
+    <span class="font-semibold">Expiration:</span>
+    <%= item.expiration&.to_date || "never" %>
+  </p>
+</div>
