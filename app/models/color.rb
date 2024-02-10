@@ -3,7 +3,7 @@
 class Color < ApplicationRecord
   include Hashid::Rails
 
-  has_many :list
+  has_many :list, dependent: :nullify
   belongs_to :user
 
   validates :name, presence: true

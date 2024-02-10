@@ -1,11 +1,14 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
-  barcode: MyString
+  name: Apple
+  barcode: '123456789'
   user: one
 
 two:
-  name: MyString
-  barcode: MyString
+  name: Banana
+  barcode: '987654321'
+  user: one
+
+three:
+  name: Orange
+  barcode: '333666999'
   user: two

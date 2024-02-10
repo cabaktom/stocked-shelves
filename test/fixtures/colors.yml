@@ -1,9 +1,14 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
-  hex_code: MyString
+  name: Red
+  hex_code: '#FF0000'
+  user: one
 
 two:
-  name: MyString
-  hex_code: MyString
+  name: Blue
+  hex_code: '#0000FF'
+  user: one
+
+three:
+  name: White
+  hex_code: '#FFFFFF'
+  user: two

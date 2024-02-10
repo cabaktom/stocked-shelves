@@ -1,9 +1,14 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
+  name: Fridge
   color: one
+  user: one
 
 two:
-  name: MyString
+  name: Pantry
   color: two
+  user: one
+
+three:
+  name: Garage
+  color: three
+  user: two

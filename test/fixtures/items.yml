@@ -1,17 +1,31 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  quantity: 1
-  expiration: 2024-02-04 15:51:44
-  expired: false
-  List: one
-  User: one
-  Product: one
+  quantity: 2
+  expiration: <%= 3.days.from_now %>
+  list: one
+  user: one
+  product: one
+  used: false
 
 two:
+  quantity: 5
+  expiration: <%= 10.days.from_now %>
+  list: two
+  user: one
+  product: two
+  used: true
+
+three:
   quantity: 1
-  expiration: 2024-02-04 15:51:44
-  expired: false
-  List: two
-  User: two
-  Product: two
+  expiration: <%= 1.day.from_now %>
+  list: three
+  user: two
+  product: three
+  used: false
+
+four:
+  quantity: 3
+  expiration: <%= 5.days.from_now %
+  list: three
+  user: two
+  product: three
+  used: true
