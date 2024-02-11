@@ -85,4 +85,4 @@ gem 'solargraph', '~> 0.50.0'
 
 gem 'solargraph-rails', '~> 1.1'
 
-gem "rails-controller-testing", "~> 1.0"
+gem 'rails-controller-testing', '~> 1.0'
