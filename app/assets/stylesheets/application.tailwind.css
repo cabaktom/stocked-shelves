@@ -7,7 +7,7 @@
     @apply selection:bg-secondary-500 selection:text-white;
   }
   main {
-    @apply p-4;
+    @apply p-4 max-w-6xl mx-auto;
   }
   h1,
   h2,
