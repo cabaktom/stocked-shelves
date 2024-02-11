@@ -19,8 +19,8 @@
   <div>
     <%= form.label :hex_code, style: "display: block" %>
     <div class="flex align-middle gap-2">
-      <%= form.color_field :hex_code, id: "color_picker", oninput: "updateColorHexValue()", value: "#ffffff" %>
-      <span id="hex_value">#ffffff</span>
+      <%= form.color_field :hex_code, id: "color_picker", oninput: "updateColorHexValue()" %>
+      <span id="hex_value"><%= @color.hex_code %></span>
     </div>
   </div>
 
