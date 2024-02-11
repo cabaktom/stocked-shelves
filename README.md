@@ -35,6 +35,8 @@ bundle exec sidekiq
 
 There is a demo user created by the `db:seed` command with the following credentials: `email: demo@example.com`, `password: password`.
 
+The server will be available on `http://localhost:3000/` and the Sidekiq web UI on `http://localhost:3000/sidekiq`.
+
 ## Test suite
 
 Run the test suite with the following command.
