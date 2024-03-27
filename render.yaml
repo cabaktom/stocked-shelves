@@ -1,6 +1,6 @@
 databases:
   - name: stocked-shelves-postgresql
-    databaseName: stocked-shelves-postgresql
+    databaseName: stocked_shelves_postgresql
     user: stocked_shelves
     plan: free
 
