@@ -33,6 +33,7 @@ services:
   - type: worker
     name: stocked-shelves-sidekiq-worker
     runtime: ruby
+    plan: free
     region: frankfurt
     buildCommand: bundle install
     startCommand: bundle exec sidekiq
