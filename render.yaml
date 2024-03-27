@@ -28,7 +28,7 @@ services:
     plan: free
     region: frankfurt
     maxmemoryPolicy: noeviction
-    ipAllowlist: [] # only allow internal connections
+    ipAllowList: [] # only allow internal connections
 
   - type: worker
     name: stocked-shelves-sidekiq-worker
