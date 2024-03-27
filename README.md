@@ -20,7 +20,25 @@ Production environment variables should be set in the hosting environment.
 
 ## Development startup
 
-Rails server and Sidekiq worker (Redis has to be running) can be started with the following commands.
+1. Start the PostgreSQL database with the following command:
+
+```sh
+docker compose up -d db
+```
+
+2. For the Sidekiq worker to work, Redis has to be running and can be e.g. started with the following command:
+
+```sh
+sudo service redis-server start
+```
+
+3. Sidekiq worker then can be started with the following commands:
+
+```sh
+bundle exec sidekiq
+```
+
+4. Lastly, start the Rails server with the following commands:
 
 ```sh
 bundle install
@@ -29,18 +47,16 @@ rails db:seed
 rails server
 ```
 
-```sh
-bundle exec sidekiq
-```
-
 There is a demo user created by the `db:seed` command with the following credentials: `email: demo@example.com`, `password: password`.
 
 The server will be available on `http://localhost:3000/` and the Sidekiq web UI on `http://localhost:3000/sidekiq`.
 
 ## Test suite
 
-Run the test suite with the following command.
+Run the test suite with the following command:
 
 ```sh
-rails test
+rake test
 ```
+
+Rake is used instead of Rails because Rails ignores the Rake task in the `lib/tasks` directory which sets up the test environment, including the database.

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 20_240_207_121_641) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension 'plpgsql'
+
   create_table 'active_storage_attachments', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -47,16 +48,16 @@ ActiveRecord::Schema[7.1].define(version: 20_240_207_121_641) do
     t.string 'hex_code'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.integer 'user_id', null: false
+    t.bigint 'user_id', null: false
     t.index ['user_id'], name: 'index_colors_on_user_id'
   end
 
   create_table 'items', force: :cascade do |t|
     t.integer 'quantity', default: 1
     t.datetime 'expiration'
-    t.integer 'list_id', null: false
-    t.integer 'user_id', null: false
-    t.integer 'product_id', null: false
+    t.bigint 'list_id', null: false
+    t.bigint 'user_id', null: false
+    t.bigint 'product_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.boolean 'used', default: false
@@ -66,25 +67,25 @@ ActiveRecord::Schema[7.1].define(version: 20_240_207_121_641) do
   end
 
   create_table 'items_notifications', id: false, force: :cascade do |t|
-    t.integer 'item_id', null: false
-    t.integer 'notification_id', null: false
+    t.bigint 'item_id', null: false
+    t.bigint 'notification_id', null: false
     t.index ['item_id'], name: 'index_items_notifications_on_item_id'
     t.index ['notification_id'], name: 'index_items_notifications_on_notification_id'
   end
 
   create_table 'lists', force: :cascade do |t|
     t.string 'name'
-    t.integer 'color_id'
+    t.bigint 'color_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.integer 'user_id', null: false
+    t.bigint 'user_id', null: false
     t.index ['color_id'], name: 'index_lists_on_color_id'
     t.index ['user_id'], name: 'index_lists_on_user_id'
   end
 
   create_table 'notifications', force: :cascade do |t|
     t.integer 'days_before_expiration', default: 1, null: false
-    t.integer 'user_id', null: false
+    t.bigint 'user_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['user_id'], name: 'index_notifications_on_user_id'
@@ -93,7 +94,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_207_121_641) do
   create_table 'products', force: :cascade do |t|
     t.string 'name'
     t.string 'barcode'
-    t.integer 'user_id', null: false
+    t.bigint 'user_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['user_id'], name: 'index_products_on_user_id'
