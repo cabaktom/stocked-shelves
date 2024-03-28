@@ -27,6 +27,22 @@ services:
           type: redis
           name: stocked-shelves-sidekiq-redis
           property: connectionString
+      - key: HOST
+        sync: stockedshelves.cabaktomas.cz
+      - key: PROTOCOL
+        sync: https
+      - key: MAIL_ADDRESS
+        value: 'smtp.seznam.cz'
+      - key: MAIL_PORT
+        value: 465
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: MAIL_AUTHENTICATION
+        value: 'login'
+      - key: MAILER_SENDER_EMAIL
+        sync: false
 
   - type: redis
     name: stocked-shelves-sidekiq-redis
