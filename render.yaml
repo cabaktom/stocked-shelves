@@ -58,6 +58,10 @@ services:
     buildCommand: bundle install
     startCommand: bundle exec sidekiq
     envVars:
+      - key: DATABASE_URL # used for deserialization of ActiveJob
+        fromDatabase:
+          name: stocked-shelves-postgresql
+          property: connectionString
       - key: REDIS_URL
         fromService:
           type: redis
