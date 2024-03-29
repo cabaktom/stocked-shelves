@@ -14,14 +14,14 @@ services:
     buildCommand: './bin/render-build.sh'
     startCommand: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
     envVars:
+      - key: WEB_CONCURRENCY
+        value: 2
       - key: DATABASE_URL
         fromDatabase:
           name: stocked-shelves-postgresql
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
-      - key: WEB_CONCURRENCY
-        value: 2
       - key: REDIS_URL
         fromService:
           type: redis
@@ -58,14 +58,30 @@ services:
     buildCommand: bundle install
     startCommand: bundle exec sidekiq
     envVars:
-      - key: DATABASE_URL # used for deserialization of ActiveJob
+      - key: DATABASE_URL # used for deserialization of ActiveJob arguments
         fromDatabase:
           name: stocked-shelves-postgresql
           property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
       - key: REDIS_URL
         fromService:
           type: redis
           name: stocked-shelves-sidekiq-redis
           property: connectionString
-      - key: RAILS_MASTER_KEY
+      - key: HOST
+        value: stockedshelves.cabaktomas.cz
+      - key: PROTOCOL
+        value: https
+      - key: MAIL_ADDRESS
+        value: 'smtp.seznam.cz'
+      - key: MAIL_PORT
+        value: 465
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: MAIL_AUTHENTICATION
+        value: 'login'
+      - key: MAILER_SENDER_EMAIL
         sync: false
