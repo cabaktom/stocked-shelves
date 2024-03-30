@@ -11,7 +11,7 @@ class UserMailerTest < ActionMailer::TestCase
     email = UserMailer.welcome_email(user).deliver_now
 
     assert_not ActionMailer::Base.deliveries.empty?
-    assert_equal ['notifications@stockedshelves.com'], email.from
+    assert_equal ['stockedshelves@cabaktomas.cz'], email.from
     assert_equal [user.email], email.to
     assert_equal 'Welcome to Stocked Shelves', email.subject
     assert_match(/Welcome to StockedShelves, #{user.username}/, email.html_part.body.to_s)
@@ -27,7 +27,7 @@ class UserMailerTest < ActionMailer::TestCase
     email = UserMailer.expiration_email(user, item, notification).deliver_now
 
     assert_not ActionMailer::Base.deliveries.empty?
-    assert_equal ['notifications@stockedshelves.com'], email.from
+    assert_equal ['stockedshelves@cabaktomas.cz'], email.from
     assert_equal [user.email], email.to
     assert_equal 'Item Expiration Reminder', email.subject
     assert_match(/Reminder: Your item expires soon!/, email.html_part.body.to_s)
