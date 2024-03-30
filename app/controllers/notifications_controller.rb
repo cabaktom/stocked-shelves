@@ -3,12 +3,12 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: %i[show edit update destroy]
 
-  # GET /notifications or /notifications.json
+  # GET /notifications
   def index
     @notifications = current_user.notifications
   end
 
-  # GET /notifications/1 or /notifications/1.json
+  # GET /notifications/1
   def show; end
 
   # GET /notifications/new
@@ -19,43 +19,31 @@ class NotificationsController < ApplicationController
   # GET /notifications/1/edit
   def edit; end
 
-  # POST /notifications or /notifications.json
+  # POST /notifications
   def create
     @notification = Notification.new(notification_params)
     @notification.user_id = current_user.id
 
-    respond_to do |format|
-      if @notification.save
-        format.html { redirect_to notification_url(@notification), notice: 'Notification was successfully created.' }
-        format.json { render :show, status: :created, location: @notification }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
-      end
+    if @notification.save
+      redirect_to notification_url(@notification), notice: 'Notification was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /notifications/1 or /notifications/1.json
+  # PATCH/PUT /notifications/1
   def update
-    respond_to do |format|
-      if @notification.update(notification_params)
-        format.html { redirect_to notification_url(@notification), notice: 'Notification was successfully updated.' }
-        format.json { render :show, status: :ok, location: @notification }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
-      end
+    if @notification.update(notification_params)
+      redirect_to notification_url(@notification), notice: 'Notification was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /notifications/1 or /notifications/1.json
+  # DELETE /notifications/1
   def destroy
     @notification.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to notifications_url, notice: 'Notification was successfully destroyed.'
   end
 
   private

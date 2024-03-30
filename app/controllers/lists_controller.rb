@@ -3,12 +3,12 @@
 class ListsController < ApplicationController
   before_action :set_list, only: %i[show edit update destroy]
 
-  # GET /lists or /lists.json
+  # GET /lists
   def index
     @lists = current_user.lists
   end
 
-  # GET /lists/1 or /lists/1.json
+  # GET /lists/1
   def show; end
 
   # GET /lists/new
@@ -19,43 +19,31 @@ class ListsController < ApplicationController
   # GET /lists/1/edit
   def edit; end
 
-  # POST /lists or /lists.json
+  # POST /lists
   def create
     @list = List.new(list_params)
     @list.user_id = current_user.id
 
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to list_url(@list), notice: 'List was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @list.save
+      redirect_to list_url(@list), notice: 'List was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /lists/1 or /lists/1.json
+  # PATCH/PUT /lists/1
   def update
-    respond_to do |format|
-      if @list.update(list_params)
-        format.html { redirect_to list_url(@list), notice: 'List was successfully updated.' }
-        format.json { render :show, status: :ok, location: @list }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @list.update(list_params)
+      redirect_to list_url(@list), notice: 'List was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /lists/1 or /lists/1.json
+  # DELETE /lists/1
   def destroy
     @list.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to lists_url, notice: 'List was successfully destroyed.'
   end
 
   private
