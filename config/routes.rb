@@ -51,6 +51,9 @@ Rails.application.routes.draw do
                  skip: %i[sessions registrations passwords],
                  controllers: { sessions: 'users/sessions', registrations: 'users/registrations' },
                  path: ''
+
+      # Other
+      get 'current_user', to: 'current_user#show', as: :current_user
     end
   end
 end
