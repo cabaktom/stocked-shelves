@@ -153,9 +153,7 @@ GEM
       rdoc
       reline (>= 0.4.2)
     jaro_winkler (1.5.6)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
+    jb (0.8.2)
     json (2.7.1)
     jwt (2.8.1)
       base64
@@ -392,7 +390,7 @@ DEPENDENCIES
   hashid-rails (~> 1.4)
   image_processing (~> 1.2)
   importmap-rails
-  jbuilder
+  jb (~> 0.8.2)
   pg (~> 1.1)
   puma (>= 5.0)
   rack-cors (~> 2.0)

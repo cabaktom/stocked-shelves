@@ -1,0 +1,33 @@
+# frozen_string_literal: true
+
+json = {
+  id: @user.id,
+  username: @user.username,
+  email: @user.email,
+  notify_through_email: @user.notify_through_email,
+  created_at: @user.created_at,
+  updated_at: @user.updated_at,
+  jti: @user.jti
+}
+
+json[:colors] = @user.colors.map do |color|
+  { id: color.id }
+end
+
+json[:items] = @user.items.map do |item|
+  { id: item.id }
+end
+
+json[:lists] = @user.lists.map do |list|
+  { id: list.id }
+end
+
+json[:notifications] = @user.notifications.map do |notification|
+  { id: notification.id }
+end
+
+json[:products] = @user.products.map do |product|
+  { id: product.id }
+end
+
+json
