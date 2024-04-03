@@ -73,6 +73,8 @@ end
 
 gem 'devise', '~> 4.9'
 
+gem 'devise-jwt', '~> 0.11.0'
+
 gem 'sidekiq', '~> 7.2'
 
 gem 'hashid-rails', '~> 1.4'
@@ -86,3 +88,5 @@ gem 'solargraph', '~> 0.50.0'
 gem 'solargraph-rails', '~> 1.1'
 
 gem 'rails-controller-testing', '~> 1.0'
+
+gem 'rack-cors', '~> 2.0'

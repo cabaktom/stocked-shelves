@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = ENV['MAILER_SENDER_EMAIL']
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -263,7 +263,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -310,4 +310,21 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  # Devise-JWT configuration
+  config.jwt do |jwt|
+    jwt.secret = Rails.application.credentials.fetch(:devise_jwt_secret_key)
+
+    # Append the JWT token to the Authorization header on login and registration
+    jwt.dispatch_requests = [
+      ['POST', %r{^/api/v1/login([.]json)?$}],
+      ['POST', %r{^/api/v1/register([.]json)?$}]
+    ]
+    # Remove the JWT token from the Authorization header on logout and account deletion
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/api/v1/logout([.]json)?$}],
+      ['DELETE', %r{^/api/v1/profile([.]json)?$}]
+    ]
+    jwt.expiration_time = 24.hours.to_i
+  end
 end

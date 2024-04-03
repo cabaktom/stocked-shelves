@@ -3,12 +3,12 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy delete_image_attachment]
 
-  # GET /products or /products.json
+  # GET /products
   def index
     @products = current_user.products
   end
 
-  # GET /products/1 or /products/1.json
+  # GET /products/1
   def show; end
 
   # GET /products/new
@@ -19,53 +19,39 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit; end
 
-  # POST /products or /products.json
+  # POST /products
   def create
     @product = Product.new(product_params)
     @product.user_id = current_user.id
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to product_url(@product), notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.save
+      redirect_to product_url(@product), notice: 'Product was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /products/1 or /products/1.json
+  # PATCH/PUT /products/1
   def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to product_url(@product), notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.update(product_params)
+      redirect_to product_url(@product), notice: 'Product was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /products/1 or /products/1.json
+  # DELETE /products/1
   def destroy
     @product.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to products_url, notice: 'Product was successfully destroyed.'
   end
 
   def delete_image_attachment
     @image = ActiveStorage::Blob.find_signed(params[:signed_id])
     @image.attachments.first.purge
 
-    respond_to do |format|
-      format.html { redirect_to product_url(@product), notice: 'Image from the product was successfully removed.' }
-      format.json { head :no_content }
-    end
+    redirect_to product_url(@product), notice: 'Image from the product was successfully removed.'
   end
 
   private
