@@ -28,9 +28,6 @@ gem 'turbo-rails'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'jbuilder'
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -90,3 +87,6 @@ gem 'solargraph-rails', '~> 1.1'
 gem 'rails-controller-testing', '~> 1.0'
 
 gem 'rack-cors', '~> 2.0'
+
+# Serialization of objects to JSON
+gem 'jb', '~> 0.8.2'

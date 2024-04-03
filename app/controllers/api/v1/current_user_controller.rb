@@ -6,7 +6,7 @@ module Api
       before_action :authenticate_user!
 
       def show
-        render json: current_user.id
+        @user = current_user
       end
     end
   end
