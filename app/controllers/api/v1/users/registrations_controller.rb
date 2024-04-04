@@ -10,19 +10,19 @@ module Api
 
         def respond_with(current_user, _opts = {})
           if request.method == 'POST' && current_user.persisted?
+            current_user_json = JSON.parse(ApplicationController.render(
+                                             template: 'api/v1/current_user/show',
+                                             assigns: { user: current_user }
+                                           ))
+
             render json: {
-              status: { code: :ok, message: 'Signed up successfully.' },
-              data: { user: current_user.id }
+              message: 'Signed up successfully.',
+              data: { user: current_user_json }
             }, status: :ok
           elsif request.method == 'DELETE'
-            render json: {
-              status: { code: :ok, message: 'Account deleted successfully.' }
-            }, status: :ok
+            render json: { message: 'Account deleted successfully.' }, status: :ok
           else
-            render json: {
-                     status: { code: :unprocessable_entity,
-                               message: "Couldn't create user. #{resource.errors.full_messages.to_sentence}" }
-                   },
+            render json: { message: "Couldn't create user. #{resource.errors.full_messages.to_sentence}." },
                    status: :unprocessable_entity
           end
         end
