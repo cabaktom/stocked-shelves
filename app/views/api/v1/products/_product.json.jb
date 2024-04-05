@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+{
+  id: product.id,
+  name: product.name,
+  barcode: product.barcode,
+  created_at: product.created_at,
+  updated_at: product.updated_at
+}
