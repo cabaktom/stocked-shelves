@@ -63,6 +63,6 @@ class ItemTest < ActiveSupport::TestCase
   end
 
   test 'should have and belong to many notifications' do
-    assert_respond_to @item, :notification, 'Item does not have and belong to many notifications'
+    assert_respond_to @item, :notifications, 'Item does not have and belong to many notifications'
   end
 end

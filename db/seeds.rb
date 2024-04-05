@@ -60,7 +60,7 @@ end
 # Assign a fixed number of notifications to each item
 Item.find_each.with_index do |item, index|
   selected_notifications = notifications[(index % notifications.length)...((index % notifications.length) + 2)]
-  item.notification << selected_notifications
+  item.notifications << selected_notifications
 end
 
 puts 'Demo data seeded.'

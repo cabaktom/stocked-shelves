@@ -3,9 +3,11 @@ one:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   username: userone
   notify_through_email: true
+  jti: 123
 
 two:
   email: user2@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   username: usertwo
   notify_through_email: false
+  jti: 321

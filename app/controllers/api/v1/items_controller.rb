@@ -59,7 +59,7 @@ module Api
         return unless @item.expiration
         return if @item.expired? || @item.used?
 
-        @item.notification.each do |notification|
+        @item.notifications.each do |notification|
           EmailExpirationNotificationJob.set(wait_until: @item.expiration - notification.days_before_expiration.days)
                                         .perform_later(current_user, @item, @item.expiration, notification)
         end
