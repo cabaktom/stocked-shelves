@@ -9,6 +9,6 @@
 
   _links: {
     self: api_v1_list_path(list),
-    color: 'TODO: Add color link here'
+    color: list.color ? api_v1_color_path(list.color) : nil
   }
 }

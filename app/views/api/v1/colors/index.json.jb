@@ -1,0 +1,5 @@
+# frozen_string_literal: true
+
+@colors.map do |color|
+  render 'color', color:
+end
