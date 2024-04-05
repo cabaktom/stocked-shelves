@@ -16,15 +16,11 @@ module Api
                                      template: 'api/v1/current_user/show',
                                      assigns: { user: }
                                    ))
-
-            render json: {
-              message: 'Signed up successfully.',
-              data: { user: user_json }
-            }, status: :ok
+            render json: user_json, status: :created
           elsif request.method == 'DELETE'
-            render json: { message: 'Account deleted successfully.' }, status: :ok
+            head :no_content
           else
-            render json: { message: "Couldn't create user. #{resource.errors.full_messages.to_sentence}." },
+            render json: { error: "Couldn't create user. #{resource.errors.full_messages.to_sentence}." },
                    status: :unprocessable_entity
           end
         end

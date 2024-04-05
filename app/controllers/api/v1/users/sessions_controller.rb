@@ -11,22 +11,18 @@ module Api
         private
 
         def respond_with(user, _opts = {})
-          current_user_json = JSON.parse(ApplicationController.render(
-                                           template: 'api/v1/current_user/show',
-                                           assigns: { user: }
-                                         ))
-
-          render json: {
-            message: 'Logged in successfully.',
-            data: { user: current_user_json }
-          }, status: :ok
+          user_json = JSON.parse(ApplicationController.render(
+                                   template: 'api/v1/current_user/show',
+                                   assigns: { user: }
+                                 ))
+          render json: user_json, status: :ok
         end
 
         def respond_to_on_destroy
           if current_user
-            render json: { message: 'Logged out successfully.' }, status: :ok
+            head :no_content
           else
-            render json: { message: "Couldn't find an active session and log out." }, status: :unauthorized
+            render json: { error: "Couldn't find an active session and log out." }, status: :unauthorized
           end
         end
 
