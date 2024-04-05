@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+{
+  id: color.id,
+  name: color.name,
+  hex_code: color.hex_code,
+  created_at: color.created_at,
+  updated_at: color.updated_at,
+
+  _links: {
+    self: api_v1_color_path(color)
+  }
+}
