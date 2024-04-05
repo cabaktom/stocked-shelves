@@ -52,6 +52,15 @@ Rails.application.routes.draw do
                  controllers: { sessions: 'users/sessions', registrations: 'users/registrations' },
                  path: ''
 
+      # Resources (CRUD routes)
+      resources :lists, only: %i[index show create update destroy]
+      resources :colors, only: %i[index show create update destroy]
+      resources :products, only: %i[index show create update destroy] do
+        delete 'image', to: 'products#delete_image_attachment', on: :member
+      end
+      resources :items, only: %i[index show create update destroy]
+      resources :notifications, only: %i[index show create update destroy]
+
       # Other
       get 'current_user', to: 'current_user#show', as: :current_user
     end

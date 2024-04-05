@@ -60,3 +60,16 @@ rake test
 ```
 
 Rake is used instead of Rails because Rails ignores the Rake task in the `lib/tasks` directory which sets up the test environment, including the database.
+
+## API
+
+After starting the server, the API is available at `http://localhost:3000/api/v1/` with the documentation available at `http://localhost:3000/api/v1/docs`.
+
+The documentation was generated from a Postman JSON collection using [Postmanerator](https://github.com/aubm/postmanerator). The collection is located in the `postman` directory and can be imported into Postman and used to interact with the API.
+
+To generate the documentation yourself, download the Postmanerator binary from the [releases page](https://github.com/aubm/postmanerator/releases) into the `postman` directory and run the following command:
+
+```sh
+chmod +x postman/postmanerator
+./postman/postmanerator -collection postman/StockedShelves.postman_collection.json -output public/api/v1/docs/index.html
+```

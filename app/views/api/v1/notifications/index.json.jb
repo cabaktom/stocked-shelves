@@ -1,0 +1,5 @@
+# frozen_string_literal: true
+
+@notifications.map do |notification|
+  render 'notification', notification:
+end

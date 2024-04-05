@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Color < ApplicationRecord
-  include Hashid::Rails
-
   has_many :list, dependent: :nullify
   belongs_to :user
 

@@ -31,12 +31,12 @@
 
   <p>
     <span class="font-semibold">Notifications:</span>
-    <% if item.notification.empty? %>
+    <% if item.notifications.empty? %>
       none
     <% else %>
-      <% item.notification&.sort_by(&:days_before_expiration).each do |notification| %>
+      <% item.notifications&.sort_by(&:days_before_expiration).each do |notification| %>
         <li>
-          <%= notification.days_before_expiration %> days before (<%= item.expiration&.to_date - notification.days_before_expiration.days %>)
+          <%= notifications.days_before_expiration %> days before (<%= item.expiration&.to_date - notification.days_before_expiration.days %>)
         </li>
       <% end %>
     <% end %>

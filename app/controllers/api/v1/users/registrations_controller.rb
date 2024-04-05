@@ -8,21 +8,19 @@ module Api
         before_action :drop_session_cookie
         skip_before_action :verify_authenticity_token
 
-        def respond_with(current_user, _opts = {})
-          if request.method == 'POST' && current_user.persisted?
-            render json: {
-              status: { code: :ok, message: 'Signed up successfully.' },
-              data: { user: current_user.id }
-            }, status: :ok
+        private
+
+        def respond_with(user, _opts = {})
+          if request.method == 'POST' && user.persisted?
+            user_json = JSON.parse(ApplicationController.render(
+                                     template: 'api/v1/current_user/show',
+                                     assigns: { user: }
+                                   ))
+            render json: user_json, status: :created
           elsif request.method == 'DELETE'
-            render json: {
-              status: { code: :ok, message: 'Account deleted successfully.' }
-            }, status: :ok
+            head :no_content
           else
-            render json: {
-                     status: { code: :unprocessable_entity,
-                               message: "Couldn't create user. #{resource.errors.full_messages.to_sentence}" }
-                   },
+            render json: { error: "Couldn't create user. #{resource.errors.full_messages.to_sentence}." },
                    status: :unprocessable_entity
           end
         end

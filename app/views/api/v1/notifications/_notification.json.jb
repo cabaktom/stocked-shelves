@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+{
+  id: notification.id,
+  days_before_expiration: notification.days_before_expiration,
+  created_at: notification.created_at,
+  updated_at: notification.updated_at,
+
+  _links: {
+    self: api_v1_notification_path(notification)
+  }
+}

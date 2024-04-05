@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+{
+  id: item.id,
+  quantity: item.quantity,
+  expiration: item.expiration,
+  expired: item.expired?,
+  used: item.used,
+  product_id: item.product_id,
+  list_id: item.list_id,
+  notifications_ids: item.notifications.map(&:id),
+  created_at: item.created_at,
+  updated_at: item.updated_at,
+
+  _links: {
+    self: api_v1_item_path(item),
+    product: api_v1_product_path(item.product),
+    list: api_v1_list_path(item.list),
+    notifications: item.notifications.map { |notification| api_v1_notification_path(notification) }
+  }
+}

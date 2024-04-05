@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+{
+  id: product.id,
+  name: product.name,
+  barcode: product.barcode,
+  image_id: product.image.attached? ? product.image.id : nil,
+  items_ids: product.items.map(&:id),
+  created_at: product.created_at,
+  updated_at: product.updated_at,
+
+  _links: {
+    self: api_v1_product_path(product),
+    items: product.items.map { |item| api_v1_item_path(item) },
+    image: product.image.attached? ? rails_blob_path(product.image, only_path: true) : nil
+  }
+}

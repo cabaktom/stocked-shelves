@@ -32,12 +32,12 @@ class NotificationTest < ActiveSupport::TestCase
   end
 
   test 'has and belongs to many items' do
-    assert_respond_to @notification, :item, 'Notification does not have items association'
+    assert_respond_to @notification, :items, 'Notification does not have items association'
   end
 
   test 'can add item to notification' do
     item = items(:one)
-    @notification.item << item
-    assert_includes @notification.item, item, 'Item was not added to the notification'
+    @notification.items << item
+    assert_includes @notification.items, item, 'Item was not added to the notification'
   end
 end

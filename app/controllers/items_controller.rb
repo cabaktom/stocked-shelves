@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_item
-    @item = current_user.items.find_by_hashid(params[:id])
+    @item = current_user.items.find_by_id(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
@@ -72,7 +72,7 @@ class ItemsController < ApplicationController
     return unless @item.expiration
     return if @item.expired? || @item.used?
 
-    @item.notification.each do |notification|
+    @item.notifications.each do |notification|
       EmailExpirationNotificationJob.set(wait_until: @item.expiration - notification.days_before_expiration.days)
                                     .perform_later(current_user, @item, @item.expiration, notification)
     end
