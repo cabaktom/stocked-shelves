@@ -178,7 +178,7 @@ pre code {
             <ul>
                 
                 <li>
-                    <a href="#request-products-all">All</a>
+                    <a href="#request-products-all-products">All products</a>
                 </li>
                 
                 <li>
@@ -199,6 +199,134 @@ pre code {
                 
                 <li>
                     <a href="#request-products-delete-product">Delete product</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-items">Items</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-items-all-items">All items</a>
+                </li>
+                
+                <li>
+                    <a href="#request-items-item">Item</a>
+                </li>
+                
+                <li>
+                    <a href="#request-items-create-item">Create item</a>
+                </li>
+                
+                <li>
+                    <a href="#request-items-update-item">Update item</a>
+                </li>
+                
+                <li>
+                    <a href="#request-items-update-item">Update item</a>
+                </li>
+                
+                <li>
+                    <a href="#request-items-delete-item">Delete item</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-lists">Lists</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-lists-all-lists">All lists</a>
+                </li>
+                
+                <li>
+                    <a href="#request-lists-list">List</a>
+                </li>
+                
+                <li>
+                    <a href="#request-lists-create-list">Create list</a>
+                </li>
+                
+                <li>
+                    <a href="#request-lists-update-list">Update list</a>
+                </li>
+                
+                <li>
+                    <a href="#request-lists-update-list">Update list</a>
+                </li>
+                
+                <li>
+                    <a href="#request-lists-delete-list">Delete list</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-notifications">Notifications</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-notifications-all-notifications">All notifications</a>
+                </li>
+                
+                <li>
+                    <a href="#request-notifications-notification">Notification</a>
+                </li>
+                
+                <li>
+                    <a href="#request-notifications-create-notification">Create notification</a>
+                </li>
+                
+                <li>
+                    <a href="#request-notifications-update-notification">Update notification</a>
+                </li>
+                
+                <li>
+                    <a href="#request-notifications-update-notification">Update notification</a>
+                </li>
+                
+                <li>
+                    <a href="#request-notifications-delete-notification">Delete notification</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-colors">Colors</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-colors-all-colors">All colors</a>
+                </li>
+                
+                <li>
+                    <a href="#request-colors-color">Color</a>
+                </li>
+                
+                <li>
+                    <a href="#request-colors-create-color">Create color</a>
+                </li>
+                
+                <li>
+                    <a href="#request-colors-update-color">Update color</a>
+                </li>
+                
+                <li>
+                    <a href="#request-colors-update-color">Update color</a>
+                </li>
+                
+                <li>
+                    <a href="#request-colors-delete-color">Delete color</a>
                 </li>
                 
             </ul>
@@ -300,8 +428,10 @@ Host: 127.0.0.1:3000
                         <div class="tab-content">
                             <div class="tab-pane active" id="request-login-example-curl">
                                 <pre><code class="hljs curl">curl -X POST -d '{
-    "login": "test30@test.cz",
-    "password": "123456"
+    "user": {
+        "login": "test59",
+        "password": "123456"
+    }
 }' "http://127.0.0.1:3000/api/v1/login"</code></pre>
                             </div>
                             <div class="tab-pane" id="request-login-example-http">
@@ -309,8 +439,10 @@ Host: 127.0.0.1:3000
 Host: 127.0.0.1:3000
 
 {
-    "login": "test30@test.cz",
-    "password": "123456"
+    "user": {
+        "login": "test59",
+        "password": "123456"
+    }
 }</code></pre>
                             </div>
                         </div>
@@ -401,9 +533,9 @@ Host: 127.0.0.1:3000</code></pre>
                     
                     <div class="request">
 
-                        <h4 id="request-products-all">
-                            All
-                            <a href="#request-products-all"><i class="glyphicon glyphicon-link"></i></a>
+                        <h4 id="request-products-all-products">
+                            All products
+                            <a href="#request-products-all-products"><i class="glyphicon glyphicon-link"></i></a>
                         </h4>
 
                         <div><p>Get all products of the currently logged in user.</p>
@@ -411,14 +543,14 @@ Host: 127.0.0.1:3000</code></pre>
 
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#request-products-all-example-curl" data-toggle="tab">Curl</a></li>
-                                <li role="presentation"><a href="#request-products-all-example-http" data-toggle="tab">HTTP</a></li>
+                                <li role="presentation" class="active"><a href="#request-products-all-products-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-products-all-products-example-http" data-toggle="tab">HTTP</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="request-products-all-example-curl">
+                                <div class="tab-pane active" id="request-products-all-products-example-curl">
                                     <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/products"</code></pre>
                                 </div>
-                                <div class="tab-pane" id="request-products-all-example-http">
+                                <div class="tab-pane" id="request-products-all-products-example-http">
                                     <pre><code class="hljs http">GET /api/v1/products HTTP/1.1
 Host: 127.0.0.1:3000</code></pre>
                                 </div>
@@ -448,10 +580,10 @@ Host: 127.0.0.1:3000</code></pre>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-products-product-example-curl">
-                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/products/8"</code></pre>
+                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/products/24"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-products-product-example-http">
-                                    <pre><code class="hljs http">GET /api/v1/products/8 HTTP/1.1
+                                    <pre><code class="hljs http">GET /api/v1/products/24 HTTP/1.1
 Host: 127.0.0.1:3000</code></pre>
                                 </div>
                             </div>
@@ -481,24 +613,18 @@ Host: 127.0.0.1:3000</code></pre>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-products-create-product-example-curl">
                                     <pre><code class="hljs curl">curl -X POST -d '{
-  "product": {
     "name": "API product",
-    "barcode": "123456773"
-  }
-}
-' "http://127.0.0.1:3000/api/v1/products"</code></pre>
+    "barcode": "123456770"
+}' "http://127.0.0.1:3000/api/v1/products"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-products-create-product-example-http">
                                     <pre><code class="hljs http">POST /api/v1/products HTTP/1.1
 Host: 127.0.0.1:3000
 
 {
-  "product": {
     "name": "API product",
-    "barcode": "123456773"
-  }
-}
-</code></pre>
+    "barcode": "123456770"
+}</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -527,24 +653,18 @@ Host: 127.0.0.1:3000
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-products-update-product-example-curl">
                                     <pre><code class="hljs curl">curl -X PUT -d '{
-  "product": {
     "name": "updated API product",
-    "barcode": "123456789"
-  }
-}
-' "http://127.0.0.1:3000/api/v1/products/8"</code></pre>
+    "barcode": "123"
+}' "http://127.0.0.1:3000/api/v1/products/24"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-products-update-product-example-http">
-                                    <pre><code class="hljs http">PUT /api/v1/products/8 HTTP/1.1
+                                    <pre><code class="hljs http">PUT /api/v1/products/24 HTTP/1.1
 Host: 127.0.0.1:3000
 
 {
-  "product": {
     "name": "updated API product",
-    "barcode": "123456789"
-  }
-}
-</code></pre>
+    "barcode": "123"
+}</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -573,22 +693,16 @@ Host: 127.0.0.1:3000
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-products-update-product-example-curl">
                                     <pre><code class="hljs curl">curl -X PATCH -d '{
-  "product": {
     "name": "again updated API product"
-  }
-}
-' "http://127.0.0.1:3000/api/v1/products/8"</code></pre>
+}' "http://127.0.0.1:3000/api/v1/products/24"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-products-update-product-example-http">
-                                    <pre><code class="hljs http">PATCH /api/v1/products/8 HTTP/1.1
+                                    <pre><code class="hljs http">PATCH /api/v1/products/24 HTTP/1.1
 Host: 127.0.0.1:3000
 
 {
-  "product": {
     "name": "again updated API product"
-  }
-}
-</code></pre>
+}</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -616,10 +730,942 @@ Host: 127.0.0.1:3000
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-products-delete-product-example-curl">
-                                    <pre><code class="hljs curl">curl -X DELETE "http://127.0.0.1:3000/api/v1/products/21/image"</code></pre>
+                                    <pre><code class="hljs curl">curl -X DELETE "http://127.0.0.1:3000/api/v1/products/24"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-products-delete-product-example-http">
-                                    <pre><code class="hljs http">DELETE /api/v1/products/21/image HTTP/1.1
+                                    <pre><code class="hljs http">DELETE /api/v1/products/24 HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-items">
+                        Items
+                        <a href="#folder-items"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-items-all-items">
+                            All items
+                            <a href="#request-items-all-items"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all items of the currently logged in user.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-items-all-items-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-items-all-items-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-items-all-items-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/items"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-items-all-items-example-http">
+                                    <pre><code class="hljs http">GET /api/v1/items HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-items-item">
+                            Item
+                            <a href="#request-items-item"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get an item of the currently logged in user.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-items-item-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-items-item-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-items-item-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/items/2"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-items-item-example-http">
+                                    <pre><code class="hljs http">GET /api/v1/items/2 HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-items-create-item">
+                            Create item
+                            <a href="#request-items-create-item"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create a new item.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-items-create-item-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-items-create-item-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-items-create-item-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -d '{
+    "used": true,
+    "quantity": 69,
+    "expiration": "2024-04-25T00:00:00.000Z",
+    "product_id": 3,
+    "list_id": 4,
+    "notification_ids": [
+        2,
+        3
+    ]
+}' "http://127.0.0.1:3000/api/v1/items"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-items-create-item-example-http">
+                                    <pre><code class="hljs http">POST /api/v1/items HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "used": true,
+    "quantity": 69,
+    "expiration": "2024-04-25T00:00:00.000Z",
+    "product_id": 3,
+    "list_id": 4,
+    "notification_ids": [
+        2,
+        3
+    ]
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-items-update-item">
+                            Update item
+                            <a href="#request-items-update-item"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update an existing item.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-items-update-item-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-items-update-item-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-items-update-item-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT -d '{
+    "used": false,
+    "quantity": 30,
+    "expiration": "2024-04-25T00:00:00.000Z",
+    "product_id": 3,
+    "list_id": 2,
+    "notification_ids": [
+        2,
+        3
+    ]
+}' "http://127.0.0.1:3000/api/v1/items/10"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-items-update-item-example-http">
+                                    <pre><code class="hljs http">PUT /api/v1/items/10 HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "used": false,
+    "quantity": 30,
+    "expiration": "2024-04-25T00:00:00.000Z",
+    "product_id": 3,
+    "list_id": 2,
+    "notification_ids": [
+        2,
+        3
+    ]
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-items-update-item">
+                            Update item
+                            <a href="#request-items-update-item"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update an existing item.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-items-update-item-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-items-update-item-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-items-update-item-example-curl">
+                                    <pre><code class="hljs curl">curl -X PATCH -d '{
+    "expiration": "2030-04-25T00:00:00.000Z"
+}' "http://127.0.0.1:3000/api/v1/items/10"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-items-update-item-example-http">
+                                    <pre><code class="hljs http">PATCH /api/v1/items/10 HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "expiration": "2030-04-25T00:00:00.000Z"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-items-delete-item">
+                            Delete item
+                            <a href="#request-items-delete-item"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete the logged in user&rsquo;s item.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-items-delete-item-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-items-delete-item-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-items-delete-item-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "http://127.0.0.1:3000/api/v1/items/2"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-items-delete-item-example-http">
+                                    <pre><code class="hljs http">DELETE /api/v1/items/2 HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-lists">
+                        Lists
+                        <a href="#folder-lists"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-lists-all-lists">
+                            All lists
+                            <a href="#request-lists-all-lists"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all lists of the currently logged in user.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-lists-all-lists-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-lists-all-lists-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-lists-all-lists-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/lists"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-lists-all-lists-example-http">
+                                    <pre><code class="hljs http">GET /api/v1/lists HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-lists-list">
+                            List
+                            <a href="#request-lists-list"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get a list of the currently logged in user.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-lists-list-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-lists-list-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-lists-list-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/lists/5"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-lists-list-example-http">
+                                    <pre><code class="hljs http">GET /api/v1/lists/5 HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-lists-create-list">
+                            Create list
+                            <a href="#request-lists-create-list"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create a new list.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-lists-create-list-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-lists-create-list-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-lists-create-list-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -d '{
+    "name": "idk",
+    "color_id": 2
+}' "http://127.0.0.1:3000/api/v1/lists"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-lists-create-list-example-http">
+                                    <pre><code class="hljs http">POST /api/v1/lists HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "name": "idk",
+    "color_id": 2
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-lists-update-list">
+                            Update list
+                            <a href="#request-lists-update-list"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update an existing list.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-lists-update-list-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-lists-update-list-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-lists-update-list-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT -d '{
+    "name": "test",
+    "color_id": null
+}' "http://127.0.0.1:3000/api/v1/lists/4"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-lists-update-list-example-http">
+                                    <pre><code class="hljs http">PUT /api/v1/lists/4 HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "name": "test",
+    "color_id": null
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-lists-update-list">
+                            Update list
+                            <a href="#request-lists-update-list"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update an existing list.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-lists-update-list-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-lists-update-list-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-lists-update-list-example-curl">
+                                    <pre><code class="hljs curl">curl -X PATCH -d '{
+    "name": "pantry"
+}' "http://127.0.0.1:3000/api/v1/lists/4"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-lists-update-list-example-http">
+                                    <pre><code class="hljs http">PATCH /api/v1/lists/4 HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "name": "pantry"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-lists-delete-list">
+                            Delete list
+                            <a href="#request-lists-delete-list"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete the logged in user&rsquo;s list.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-lists-delete-list-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-lists-delete-list-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-lists-delete-list-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "http://127.0.0.1:3000/api/v1/lists/2"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-lists-delete-list-example-http">
+                                    <pre><code class="hljs http">DELETE /api/v1/lists/2 HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-notifications">
+                        Notifications
+                        <a href="#folder-notifications"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-notifications-all-notifications">
+                            All notifications
+                            <a href="#request-notifications-all-notifications"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all notifications of the currently logged in user.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-notifications-all-notifications-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-notifications-all-notifications-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-notifications-all-notifications-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/notifications"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-notifications-all-notifications-example-http">
+                                    <pre><code class="hljs http">GET /api/v1/notifications HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-notifications-notification">
+                            Notification
+                            <a href="#request-notifications-notification"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get a notification of the currently logged in user.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-notifications-notification-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-notifications-notification-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-notifications-notification-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/notifications/2"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-notifications-notification-example-http">
+                                    <pre><code class="hljs http">GET /api/v1/notifications/2 HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-notifications-create-notification">
+                            Create notification
+                            <a href="#request-notifications-create-notification"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create a new notification.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-notifications-create-notification-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-notifications-create-notification-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-notifications-create-notification-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -d '{
+    "days_before_expiration": 6
+}' "http://127.0.0.1:3000/api/v1/notifications"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-notifications-create-notification-example-http">
+                                    <pre><code class="hljs http">POST /api/v1/notifications HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "days_before_expiration": 6
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-notifications-update-notification">
+                            Update notification
+                            <a href="#request-notifications-update-notification"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update an existing notification.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-notifications-update-notification-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-notifications-update-notification-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-notifications-update-notification-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT -d '{
+    "days_before_expiration": 7
+}' "http://127.0.0.1:3000/api/v1/notifications/4"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-notifications-update-notification-example-http">
+                                    <pre><code class="hljs http">PUT /api/v1/notifications/4 HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "days_before_expiration": 7
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-notifications-update-notification">
+                            Update notification
+                            <a href="#request-notifications-update-notification"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update an existing notification.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-notifications-update-notification-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-notifications-update-notification-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-notifications-update-notification-example-curl">
+                                    <pre><code class="hljs curl">curl -X PATCH -d '{
+    "days_before_expiration": 5
+}' "http://127.0.0.1:3000/api/v1/notifications/4"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-notifications-update-notification-example-http">
+                                    <pre><code class="hljs http">PATCH /api/v1/notifications/4 HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "days_before_expiration": 5
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-notifications-delete-notification">
+                            Delete notification
+                            <a href="#request-notifications-delete-notification"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete the logged in user&rsquo;s notification.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-notifications-delete-notification-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-notifications-delete-notification-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-notifications-delete-notification-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "http://127.0.0.1:3000/api/v1/notifications/4"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-notifications-delete-notification-example-http">
+                                    <pre><code class="hljs http">DELETE /api/v1/notifications/4 HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-colors">
+                        Colors
+                        <a href="#folder-colors"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-colors-all-colors">
+                            All colors
+                            <a href="#request-colors-all-colors"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all colors of the currently logged in user.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-colors-all-colors-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-colors-all-colors-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-colors-all-colors-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/colors"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-colors-all-colors-example-http">
+                                    <pre><code class="hljs http">GET /api/v1/colors HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-colors-color">
+                            Color
+                            <a href="#request-colors-color"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get a color of the currently logged in user.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-colors-color-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-colors-color-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-colors-color-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "http://127.0.0.1:3000/api/v1/colors/2"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-colors-color-example-http">
+                                    <pre><code class="hljs http">GET /api/v1/colors/2 HTTP/1.1
+Host: 127.0.0.1:3000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-colors-create-color">
+                            Create color
+                            <a href="#request-colors-create-color"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create a new color.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-colors-create-color-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-colors-create-color-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-colors-create-color-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -d '{
+    "name": "blue",
+    "hex_code": "#0000FF"
+}' "http://127.0.0.1:3000/api/v1/colors"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-colors-create-color-example-http">
+                                    <pre><code class="hljs http">POST /api/v1/colors HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "name": "blue",
+    "hex_code": "#0000FF"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-colors-update-color">
+                            Update color
+                            <a href="#request-colors-update-color"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update an existing color.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-colors-update-color-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-colors-update-color-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-colors-update-color-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT -d '{
+    "name": "green",
+    "hex_code": "#00FF00"
+}' "http://127.0.0.1:3000/api/v1/colors/1"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-colors-update-color-example-http">
+                                    <pre><code class="hljs http">PUT /api/v1/colors/1 HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "name": "green",
+    "hex_code": "#00FF00"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-colors-update-color">
+                            Update color
+                            <a href="#request-colors-update-color"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update an existing color.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-colors-update-color-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-colors-update-color-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-colors-update-color-example-curl">
+                                    <pre><code class="hljs curl">curl -X PATCH -d '{
+    "name": "updated green"
+}' "http://127.0.0.1:3000/api/v1/colors/1"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-colors-update-color-example-http">
+                                    <pre><code class="hljs http">PATCH /api/v1/colors/1 HTTP/1.1
+Host: 127.0.0.1:3000
+
+{
+    "name": "updated green"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-colors-delete-color">
+                            Delete color
+                            <a href="#request-colors-delete-color"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete the logged in user&rsquo;s color.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-colors-delete-color-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-colors-delete-color-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-colors-delete-color-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "http://127.0.0.1:3000/api/v1/colors/1"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-colors-delete-color-example-http">
+                                    <pre><code class="hljs http">DELETE /api/v1/colors/1 HTTP/1.1
 Host: 127.0.0.1:3000</code></pre>
                                 </div>
                             </div>
