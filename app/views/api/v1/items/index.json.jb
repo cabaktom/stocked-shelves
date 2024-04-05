@@ -1,0 +1,5 @@
+# frozen_string_literal: true
+
+@items.map do |item|
+  render 'item', item:
+end

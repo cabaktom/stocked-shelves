@@ -56,6 +56,7 @@ Rails.application.routes.draw do
       resources :products, only: %i[index show create update destroy] do
         delete 'image', to: 'products#delete_image_attachment', on: :member
       end
+      resources :items, only: %i[index show create update destroy]
 
       # Other
       get 'current_user', to: 'current_user#show', as: :current_user
