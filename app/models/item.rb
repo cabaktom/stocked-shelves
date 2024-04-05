@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Item < ApplicationRecord
-  include Hashid::Rails
-
   belongs_to :list
   belongs_to :user
   belongs_to :product

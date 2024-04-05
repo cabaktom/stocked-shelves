@@ -74,7 +74,6 @@ gem 'devise-jwt', '~> 0.11.0'
 
 gem 'sidekiq', '~> 7.2'
 
-gem 'hashid-rails', '~> 1.4'
 
 gem 'active_storage_validations', '~> 1.1'
 

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
-  include Hashid::Rails
-
   belongs_to :user
   has_many :items, dependent: :destroy
   has_one_attached :image

@@ -135,10 +135,6 @@ GEM
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    hashid-rails (1.4.1)
-      activerecord (>= 4.0)
-      hashids (~> 1.0)
-    hashids (1.0.6)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -387,7 +383,6 @@ DEPENDENCIES
   devise (~> 4.9)
   devise-jwt (~> 0.11.0)
   dotenv
-  hashid-rails (~> 1.4)
   image_processing (~> 1.2)
   importmap-rails
   jb (~> 0.8.2)
