@@ -1,33 +1,28 @@
 # frozen_string_literal: true
 
-json = {
+{
   id: @user.id,
   username: @user.username,
   email: @user.email,
   notify_through_email: @user.notify_through_email,
   created_at: @user.created_at,
   updated_at: @user.updated_at,
-  jti: @user.jti
+  jti: @user.jti,
+  colors_ids: @user.colors.map(&:id),
+  items_ids: @user.items.map(&:id),
+  lists_ids: @user.lists.map(&:id),
+  notifications_ids: @user.notifications.map(&:id),
+  products_ids: @user.products.map(&:id),
+
+  _links: {
+    self: api_v1_current_user_path(@user),
+    colors: 'TODO: Add colors link here',
+    items: @user.items.map { |item| api_v1_item_path(item) },
+    lists: 'TODO: Add lists link here',
+    notifications: 'TODO: Add notifications link here',
+    products: @user.products.map { |product| api_v1_product_path(product) }
+    # lists: @user.lists.map { |list| api_v1_list_path(list) },
+    # notifications: @user.notifications.map { |notification| api_v1_notification_path(notification) },
+    # products: @user.products.map { |product| api_v1_product_path(product) }
+  }
 }
-
-json[:colors] = @user.colors.map do |color|
-  { id: color.id }
-end
-
-json[:items] = @user.items.map do |item|
-  { id: item.id }
-end
-
-json[:lists] = @user.lists.map do |list|
-  { id: list.id }
-end
-
-json[:notifications] = @user.notifications.map do |notification|
-  { id: notification.id }
-end
-
-json[:products] = @user.products.map do |product|
-  { id: product.id }
-end
-
-json
