@@ -19,9 +19,8 @@
     colors: 'TODO: Add colors link here',
     items: @user.items.map { |item| api_v1_item_path(item) },
     lists: @user.lists.map { |list| api_v1_list_path(list) },
-    notifications: 'TODO: Add notifications link here',
+    notifications: @user.notifications.map { |notification| api_v1_notification_path(notification) },
     products: @user.products.map { |product| api_v1_product_path(product) }
-    # notifications: @user.notifications.map { |notification| api_v1_notification_path(notification) },
     # products: @user.products.map { |product| api_v1_product_path(product) }
   }
 }

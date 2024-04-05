@@ -58,6 +58,7 @@ Rails.application.routes.draw do
       end
       resources :items, only: %i[index show create update destroy]
       resources :lists, only: %i[index show create update destroy]
+      resources :notifications, only: %i[index show create update destroy]
 
       # Other
       get 'current_user', to: 'current_user#show', as: :current_user

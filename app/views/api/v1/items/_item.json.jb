@@ -16,6 +16,6 @@
     self: api_v1_item_path(item),
     product: api_v1_product_path(item.product),
     list: api_v1_list_path(item.list),
-    notifications: 'TODO: Add notifications link here'
+    notifications: item.notifications.map { |notification| api_v1_notification_path(notification) }
   }
 }
